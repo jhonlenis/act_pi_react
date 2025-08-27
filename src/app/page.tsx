@@ -1,103 +1,185 @@
-import Image from "next/image";
+// app/page.tsx
+'use client';
+
+import { useState } from 'react';
+
+// Simulación de datos de usuario
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [currentView, setCurrentView] = useState<'login' | 'register' | 'welcome'>('login');
+  const [user, setUser] = useState<User | null>(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  // Simulación de función de login
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Aquí normalmente harías una llamada a tu API
+    if (email === 'demo@example.com' && password === 'password') {
+      setUser({ id: 1, name: 'Usuario Demo', email });
+      setCurrentView('welcome');
+      setMessage('');
+    } else {
+      setMessage('Credenciales incorrectas');
+    }
+  };
+
+  // Simulación de función de registro
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Aquí normalmente harías una llamada a tu API
+    if (name && email && password) {
+      setUser({ id: Date.now(), name, email });
+      setCurrentView('welcome');
+      setMessage('');
+    } else {
+      setMessage('Por favor completa todos los campos');
+    }
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setEmail('');
+    setPassword('');
+    setName('');
+    setCurrentView('login');
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        {currentView === 'welcome' && user ? (
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-800 mb-4">¡Bienvenido!</h1>
+            <p className="text-gray-600 mb-2">Hola, {user.name}</p>
+            <p className="text-gray-600 mb-6">Has iniciado sesión correctamente</p>
+            <button
+              onClick={handleLogout}
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+            >
+              Cerrar Sesión
+            </button>
+          </div>
+        ) : currentView === 'login' ? (
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Iniciar Sesión</h1>
+            {message && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{message}</div>}
+            <form onSubmit={handleLogin}>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label className="block text-gray-700 mb-2" htmlFor="password">
+                  Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition"
+              >
+                Iniciar Sesión
+              </button>
+            </form>
+            <p className="text-center text-gray-600 mt-4">
+              ¿No tienes cuenta?{' '}
+              <button
+                onClick={() => setCurrentView('register')}
+                className="text-blue-500 hover:underline"
+              >
+                Regístrate aquí
+              </button>
+            </p>
+          </div>
+        ) : (
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Crear Cuenta</h1>
+            {message && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{message}</div>}
+            <form onSubmit={handleRegister}>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2" htmlFor="name">
+                  Nombre completo
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2" htmlFor="reg-email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="reg-email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label className="block text-gray-700 mb-2" htmlFor="reg-password">
+                  Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="reg-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition"
+              >
+                Crear Cuenta
+              </button>
+            </form>
+            <p className="text-center text-gray-600 mt-4">
+              ¿Ya tienes cuenta?{' '}
+              <button
+                onClick={() => setCurrentView('login')}
+                className="text-blue-500 hover:underline"
+              >
+                Inicia sesión aquí
+              </button>
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
