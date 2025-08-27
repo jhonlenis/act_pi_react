@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "titulo": "El trancon más largo de Bogotá",
+    "descripcion": "Dicen que un conductor lleva tanto tiempo atrapado que ya bautizó a su hijo dentro del carro. El bebé ya sabe tocar corneta.",
+    "imagen": "",
+    "importante": true
+  },
+  {
+    "id": 2,
+    "titulo": "Arepa con queso causa revolución en Medellín",
+    "descripcion": "La arepa se vendió más que el reguetón en la Feria de las Flores. El secreto: ¡doble queso costeño!",
+    "imagen": "",
+    "importante": false
+  },
+  {
+    "id": 3,
+    "titulo": "Gallina se mete al TransMilenio",
+    "descripcion": "Subió en hora pico, puso un huevo y se ganó la ovación.",
+    "imagen": "",
+    "importante": true
+  },
+  {
+    "id": 4,
+    "titulo": "Vecino pone vallenato a las 5 AM",
+    "descripcion": "El barrio entero terminó bailando y pidiendo sancocho.",
+    "imagen": "",
+    "importante": false
+  }
+]
