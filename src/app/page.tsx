@@ -1,241 +1,146 @@
-import FlipCard from "./components/FlipCard";
-import NoticiaCard from "./components/NoticiasCard";
-
-const noticias = [
-  {
-    titulo: "Arepa voladora",
-    contenido:
-      "En Medellín un señor lanzó una arepa al aire y cayó directo en la mano de un turista gringo. El turista ahora dice que fue 'el mejor delivery de su vida'.",
-    imagen: "https://images.unsplash.com/photo-1612216353064-fd3e04131a5d?fit=crop&w=700&q=80",
-  },
-  {
-    titulo: "Gallo fiestero",
-    contenido:
-      "Un gallo en Cali canta reguetón a las 3AM. Los vecinos ya no se quejan porque ahora bailan.",
-    imagen: "", // puedes agregar una imagen si quieres
-  },
-  {
-    titulo: "Bus fantasma",
-    contenido:
-      "En Bogotá un bus del SITP llegó puntual. Los pasajeros aseguran que fue un milagro y piden canonizar al conductor.",
-    imagen: "", 
-  },
-  {
-    titulo: "Café con sorpresa",
-    contenido:
-      "En el Eje Cafetero, un barista sirvió un tinto con un mensaje motivacional en la espuma: 'usted sí puede pagar fiado'.",
-    imagen: "", 
-  },
-  {
-    titulo: "Vaca influencer",
-    contenido:
-      "En Boyacá una vaca se volvió famosa en TikTok por hacer caras cuando le toman selfies.",
-    imagen: "", 
-  },
-  {
-    titulo: "Trancón gourmet",
-    contenido:
-      "Un vendedor de empanadas en un trancón de la 30 ya tiene más clientes que un restaurante en la zona rosa.",
-    imagen: "", 
-  },
-  {
-    titulo: "Chancla perdida",
-    contenido:
-      "Una mamá en Bucaramanga lanzó la chancla y nunca volvió. Expertos creen que entró a otra dimensión.",
-    imagen: "", 
-  },
-  {
-    titulo: "Perro político",
-    contenido:
-      "En Pasto un perro callejero fue elegido 'presidente del barrio'. Prometió huesos gratis y menos pirotecnia.",
-    imagen:
-      "https://images.unsplash.com/photo-1601758123927-196d2ccc90ec?fit=crop&w=700&q=80",
-  },
-  {
-    titulo: "Sancocho espacial",
-    contenido:
-      "En Villavicencio intentaron cocinar un sancocho con fuego de cohete artesanal. El sancocho salió volando antes que estuviera.",
-    imagen: "", 
-  },
-  {
-    titulo: "Ciclista dormido",
-    contenido:
-      "En Tunja un ciclista fue visto pedaleando mientras dormía. Nadie se explica cómo llegó a la meta.",
-    imagen: "", 
-  },
-  {
-    titulo: "Plátano fashion",
-    contenido:
-      "En la Costa un señor salió con un plátano maduro en el bolsillo como accesorio de moda.",
-    imagen: "", 
-  },
-  {
-    titulo: "Semáforo bailarín",
-    contenido:
-      "Un semáforo en Bucaramanga dejó de funcionar y un policía lo reemplazó bailando salsa choke.",
-    imagen: "", 
-  },
-  {
-    titulo: "WhatsApp caído",
-    contenido:
-      "Colombia entera colapsó porque se cayó WhatsApp. Algunos jóvenes conocieron a sus vecinos por primera vez.",
-    imagen:
-      "https://images.unsplash.com/photo-1600269452121-7c05d6f8d65c?fit=crop&w=700&q=80",
-  },
-  {
-    titulo: "Taxi motivador",
-    contenido:
-      "En Barranquilla un taxista da discursos de autoestima en lugar de cobrar la carrera completa.",
-    imagen: "", 
-  },
-  {
-    titulo: "Panadero influencer",
-    contenido:
-      "Un panadero en Pereira sube fotos de pandebonos y ya tiene 2 millones de seguidores.",
-    imagen: "", 
-  },
-  {
-    titulo: "Mono gamer",
-    contenido:
-      "En la Amazonía un mono fue visto jugando Free Fire en un celular robado.",
-    imagen:
-      "https://images.unsplash.com/photo-1615461066845-0cfce4df3c17?fit=crop&w=700&q=80",
-  },
-  {
-    titulo: "Pollo rebelde",
-    contenido:
-      "En Ibagué un pollo asado salió corriendo de la brasa y entró a un gimnasio. Ahora es entrenador fitness.",
-    imagen: "", 
-  },
-  {
-    titulo: "Arequipe explosivo",
-    contenido:
-      "En Manizales un tarro de arequipe explotó en una tienda porque alguien dijo 'no hay postre'.",
-    imagen: "", 
-  },
-  {
-    titulo: "Bicicleta musical",
-    contenido:
-      "En Bogotá un señor adaptó una bicicleta para que suene como una vuvuzela cuando pedalea.",
-    imagen: "", 
-  },
-  {
-    titulo: "Tinto político",
-    contenido:
-      "En el Congreso un representante propuso que el café sea la moneda oficial del país.",
-    imagen: "", 
-  },
-  {
-    titulo: "Patacón volador",
-    contenido:
-      "En Cartagena un patacón voló con el viento y aterrizó en un plato de ceviche. Ahora lo llaman 'fusión costeña'.",
-    imagen: "", 
-  },
-  {
-    titulo: "Chiva DJ",
-    contenido:
-      "En Antioquia una chiva rumbera puso vallenato remix con electrónica. Hasta las vacas bailaron.",
-    imagen: "", 
-  },
-  {
-    titulo: "Coca-Cola con aguardiente",
-    contenido:
-      "En Cali un tendero lanzó una nueva bebida energética llamada 'Despecho 5000'.",
-    imagen: "", 
-  },
-  {
-    titulo: "Tortuga rápida",
-    contenido:
-      "En Santa Marta una tortuga se escapó corriendo. Los vecinos aseguran que se metió Red Bull.",
-    imagen: "", 
-  },
-  {
-    titulo: "Guayabo eterno",
-    contenido:
-      "Un caleño despertó con guayabo de 3 días y pidió incapacidad laboral.",
-    imagen: "", 
-  },
-  {
-    titulo: "Chocoramo espacial",
-    contenido:
-      "Un astronauta colombiano llevó un Chocoramo al espacio y ahora flota en la estación espacial.",
-    imagen: "", 
-  },
-  {
-    titulo: "Perrito alcalde",
-    contenido:
-      "En un pueblo pequeño eligieron a un perrito como alcalde. Primer decreto: paseos obligatorios a las 5pm.",
-    imagen: "", 
-  },
-  {
-    titulo: "Mototaxi volador",
-    contenido:
-      "En Sincelejo inventaron el primer mototaxi con alas. Primer vuelo: hasta la tienda de la esquina.",
-    imagen: "", 
-  },
-  {
-    titulo: "Empanada sospechosa",
-    contenido:
-      "Una empanada en Cúcuta salió tan grande que los vecinos creen que fue fabricada por alienígenas.",
-    imagen: "", 
-  },
-  {
-    titulo: "Mango asesino",
-    contenido:
-      "Un mango cayó de un árbol y tumbó a un ciclista. El mango huyó de la escena.",
-    imagen: "", 
-  },
-  {
-    titulo: "Sancocho XXL",
-    contenido:
-      "En Tolima hicieron un sancocho tan grande que usaron una piscina como olla.",
-    imagen: "", 
-  },
-  {
-    titulo: "Gallina actriz",
-    contenido:
-      "En Huila una gallina participó en una novela y pidió contrato exclusivo.",
-    imagen: "", 
-  },
-  {
-    titulo: "Tamal futurista",
-    contenido:
-      "En Bogotá alguien hizo un tamal vegano con hologramas de carne.",
-    imagen:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?fit=crop&w=700&q=80",
-  },
-  {
-    titulo: "Chanclas con WiFi",
-    contenido:
-      "Un inventor costeño creó unas chanclas que se conectan a internet. El problema: solo agarran señal en la playa.",
-    imagen: "", 
-  },
-  {
-    titulo: "Silla bailarina",
-    contenido:
-      "En Medellín una silla empezó a moverse sola en una fiesta. Resulta que tenía bluetooth y estaba emparejada con la música.",
-    imagen:
-      "https://images.unsplash.com/photo-1598300042247-2d7d72673c89?fit=crop&w=700&q=80",
-  },
-];
+import Image from "next/image";
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-[#f5f2eb] p-6">
-      <h1 className="text-5xl font-bold text-center mb-12 text-gray-800">
-        Bienvenido a Chismofilia 📰
-      </h1>
+  const [currentView, setCurrentView] = useState<'login' | 'register' | 'welcome'>('login');
+  const [user, setUser] = useState<User | null>(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
 
-      {/* 📌 GRID de noticias */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {noticias.map((n, i) => (
-          <FlipCard
-            key={i}
-            front={<NoticiaCard titulo={n.titulo} imagen={n.imagen} />}
-            back={<NoticiaCard titulo={n.titulo} contenido={n.contenido} imagen={n.imagen} />}
+  // Simulación de función de login
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Aquí normalmente harías una llamada a tu API
+    if (email === 'demo@example.com' && password === 'password') {
+      setUser({ id: 1, name: 'Usuario Demo', email });
+      setCurrentView('welcome');
+      setMessage('');
+    } else {
+      setMessage('Credenciales incorrectas');
+    }
+  };
+
+  // Simulación de función de registro
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Aquí normalmente harías una llamada a tu API
+    if (name && email && password) {
+      setUser({ id: Date.now(), name, email });
+      setCurrentView('welcome');
+      setMessage('');
+    } else {
+      setMessage('Por favor completa todos los campos');
+    }
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setEmail('');
+    setPassword('');
+    setName('');
+    setCurrentView('login');
+  };
+
+  return (
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
+          <li className="mb-2 tracking-[-.01em]">
+            Get started by editing{" "}
+            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
+              src/app/page.tsx
+            </code>
+            .
+          </li>
+          <li className="tracking-[-.01em]">
+            Save and see your changes instantly.
+          </li>
+        </ol>
+
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <a
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={20}
+              height={20}
+            />
+            Deploy now
+          </a>
+          <a
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read our docs
+          </a>
+        </div>
+      </main>
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
           />
-        ))}
-      </div>
-    </main>
+          Learn
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/window.svg"
+            alt="Window icon"
+            width={16}
+            height={16}
+          />
+          Examples
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Go to nextjs.org →
+        </a>
+      </footer>
+    </div>
   );
 }
