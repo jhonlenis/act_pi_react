@@ -21,27 +21,28 @@ function Login({ onLogin }) {
     e.preventDefault();
     setMessage('');
 
-    const endpoint = isLogin ? '/api/login' : '/api/register';
-    
-    try {
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setMessage(data.message);
-        onLogin(data.user);
-      } else {
-        setMessage(data.message);
+    // Simulación de autenticación exitosa sin necesidad de servidor
+    if (formData.email && formData.password) {
+      // Para registro, también requerimos el nombre
+      if (!isLogin && !formData.name) {
+        setMessage('Por favor, ingresa tu nombre');
+        return;
       }
-    } catch (error) {
-      setMessage('Error de conexión. Verifica que el servidor esté ejecutándose.');
+      
+      // Simular una respuesta exitosa después de un breve retraso
+      setMessage(isLogin ? 'Iniciando sesión...' : 'Creando cuenta...');
+      
+      setTimeout(() => {
+        const userData = {
+          name: isLogin ? 'Usuario' : formData.name,
+          email: formData.email
+        };
+        
+        setMessage(isLogin ? '¡Inicio de sesión exitoso!' : '¡Cuenta creada exitosamente!');
+        onLogin(userData);
+      }, 1000);
+    } else {
+      setMessage('Por favor, completa todos los campos');
     }
   };
 
