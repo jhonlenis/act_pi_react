@@ -1,26 +1,47 @@
-"use client";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-start bg-pink-600 text-white px-6 py-4 shadow-md">
-      {/* Logo pequeño */}
-      <Image src="/chismofilia.png" alt="Chismofilia" width={50} height={50} className="mr-4 rounded-full" />
+    <nav className="bg-gray-800">
+      <div className="flex justify-between items-center h-16 px-6">
+        {/* Sección izquierda: links */}
+        <ul className="flex space-x-8">
+          <li>
+            <Link
+              href="/Noticias"
+              className="text-white hover:text-yellow-300"
+            >
+              Noticias
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/Relevantes"
+              className="text-white hover:text-yellow-300"
+            >
+              Noticias de último momento
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/Deporte"
+              className="text-white hover:text-yellow-300"
+            >
+              Deporte
+            </Link>
+          </li>
+        </ul>
 
-      {/* Botones */}
-      <div className="flex space-x-4">
-        <Link href="/" passHref>
-          <button className="px-4 py-2 bg-yellow-400 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-500 hover:scale-105 transition-transform cursor-pointer">
-            Inicio
-          </button>
-        </Link>
-
-        <Link href="/noticias-importantes" passHref>
-          <button className="px-4 py-2 bg-purple-400 text-white font-semibold rounded-lg shadow-md hover:bg-purple-500 hover:scale-105 transition-transform cursor-pointer">
-            Noticias Importantes
-          </button>
-        </Link>
+        {/* Sección derecha: logo */}
+        <Image
+          src="/chismofilia.png"
+          alt="Logo Noticias Colombianas"
+          width={60}
+          height={50}
+          className="rounded-full"
+        />
       </div>
     </nav>
   );

@@ -14,7 +14,7 @@ export default function NoticiaCard({
   fecha,
 }: NoticiaCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
       <img src={imagen} alt={titulo} className="w-full h-40 object-cover" />
       <div className="p-4">
         <h2 className="text-lg font-bold text-gray-800">{titulo}</h2>

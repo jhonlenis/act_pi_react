@@ -25,7 +25,7 @@ Informar a las personas de las noticias de nuestro pais que hallan pasado resien
   - ✅ [Tarea completada 1] - Responsable: [Jhon Alexander Lenis HOlguiin] - Commit: [Modificacion del README.md]
   - ✅ [Tarea completada 2] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
 - **En progreso**:
-  - 🔄 [Tarea en progreso] - Responsable: [Jhon Alexander Lenis HOlguin] - Commit: [La Creacion de la Pagina Web o SItion Web]
+  - 🔄 [Tarea en progreso] - Responsable: [Jhon Alexander Lenis HOlguin] - Commit: [La Creacion de la Pagina Web o Sitio Web]
 - **Pendiente**:
   - ⏳ [Tarea pendiente: Login] - Responsable: [Mateo Usuga ALvarez]
 - **Notas**:
@@ -35,10 +35,10 @@ Informar a las personas de las noticias de nuestro pais que hallan pasado resien
 - **Fecha**: [27/08/2025]
 - **Objetivos**:
   - [Comenzar a Realizar el Login]
-  - [Progresar con el SItio Web]
+  - [Progresar con el Sitio Web]
 - **Avances**:
-  - ✅ [Tarea completada 1] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
-  - ✅ [Tarea completada 2] - Responsable: [Nombre] - Commit: [Hash o descripción del commit]
+  - ✅ [Tarea completada 1: (Pagina - Login)] - Responsable: [Jhon alexander lenis holguin] - Commit: [Hash o descripción del commit]
+  - ✅ [Tarea completada 2: (Login)] - Responsable: [Mateo usuga Alvarez] - Commit: [Hash o descripción del commit]
 - **En progreso**:
   - 🔄 [Tarea en progreso] - Responsable: [Jhon Alexande Lenis Holguin] - Commit: [Seguir con la creacion de la Pagina Web o SItion Web]
 - **Pendiente**:
@@ -46,14 +46,15 @@ Informar a las personas de las noticias de nuestro pais que hallan pasado resien
 - **Notas**:
   - [Descripción de problemas, soluciones o decisiones tomadas]
 
-### Clase [N]
-- **Fecha**: [DD/MM/YYYY]
-- [Repetir estructura anterior]
+### Clase [3]
+- **Fecha**: [24/09/2025]
+- [Tarea Finalizada]
+- [Tarea completada 1: (ultimos retoques de toda la página)] - Responsable: [Jhon alexander lenis holguin] - Commit: [Retoques]
 
 ## Contacto
 ### Información del Grupo
 - **Institución**: SENA
-- **Programa**: [Nombre del programa]
-- **Ficha**: [Número de ficha]
-- **Instructor**: [Nombre del instructor]
-- **Período**: [Año - Trimestre]
+- **Programa**: [Programacion de Software]
+- **Ficha**: [3144585]
+- **Instructor**: [Jhon Freddy]
+- **Período**: [2025 - 3er Trimestre]
